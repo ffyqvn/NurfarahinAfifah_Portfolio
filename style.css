@@ -1,0 +1,466 @@
+/* ============================================================
+   Portfolio stylesheet — Nurfarahin Afifah
+   Palette:  navy #10233F / #1B3A63   brass #B8862E
+             cream #F7F5F0            ink #1B1D22
+   Type:     Fraunces (display serif) + Source Sans 3 (body/UI)
+   ============================================================ */
+
+:root {
+  --navy-deep: #0E1F38;
+  --navy: #16335C;
+  --navy-soft: #234775;
+  --brass: #B8862E;
+  --brass-soft: #E4C77E;
+  --cream: #F7F5F0;
+  --panel-alt: #EFEBE1;
+  --ink: #1B1D22;
+  --ink-soft: #565C66;
+  --line: #DCD6C8;
+  --white: #FFFFFF;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(14, 31, 56, 0.08);
+  --max: 880px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  margin: 0;
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--navy-deep);
+  margin: 0;
+  line-height: 1.15;
+}
+
+a {
+  color: var(--navy);
+  text-decoration: none;
+}
+a:hover { color: var(--brass); }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+/* ---------------- Hero ---------------- */
+.hero {
+  background:
+    radial-gradient(1200px 500px at 20% -10%, rgba(184,134,46,0.18), transparent 60%),
+    linear-gradient(160deg, var(--navy-deep), var(--navy) 65%, var(--navy-soft));
+  padding: 4.5rem 1.5rem 3.25rem;
+  text-align: center;
+  border-bottom: 3px solid var(--brass);
+}
+
+.hero-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.portrait {
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 1.75rem;
+  border-radius: 50%;
+  border: 3px solid var(--brass-soft);
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: var(--brass-soft);
+  overflow: hidden;
+}
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.name {
+  color: var(--white);
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.affiliation {
+  color: var(--brass-soft);
+  margin: 0.9rem 0 0;
+  font-size: 1.02rem;
+}
+
+.contact-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.4rem;
+  margin-top: 1.1rem;
+  font-size: 0.95rem;
+}
+.contact-line a { color: rgba(255,255,255,0.88); }
+.contact-line a:hover { color: var(--brass-soft); }
+
+/* ---------------- Tab nav ---------------- */
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+
+.tabs-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  white-space: nowrap;
+}
+
+.tabs a {
+  display: block;
+  padding: 1rem 1.15rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  border-bottom: 3px solid transparent;
+}
+.tabs a:hover { color: var(--navy); }
+
+.tabs a.active {
+  color: var(--navy-deep);
+  border-bottom-color: var(--brass);
+}
+.photo-slot,
+.card,
+.ref-card{
+
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+
+}
+/* ---------------- Panels ---------------- */
+.panel {
+  padding: 3.5rem 1.5rem;
+  scroll-margin-top: 64px;
+}
+.panel.alt { background: var(--panel-alt); }
+
+.panel-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.panel h2 {
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 2px solid var(--brass);
+  display: inline-block;
+}
+
+.lede {
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+  max-width: 100%;
+}
+
+/* ---------------- Timeline ---------------- */
+.timeline {
+  position: relative;
+  padding-left: 1.75rem;
+  border-left: 2px solid var(--line);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 3rem;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1.98rem;
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--brass);
+  border: 2px solid var(--cream);
+}
+
+.timeline-tag {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin-bottom: 0.35rem;
+}
+
+.timeline-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.meta {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+  font-size: 0.96rem;
+}
+
+.timeline-item ul,
+.card ul {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+.timeline-item ul li,
+.card ul li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.98rem;
+}
+.timeline-item ul li::before,
+.card ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--brass);
+}
+
+/* ---------------- Photo placeholders ---------------- */
+.photo-strip {
+  columns: 220px;
+  column-gap: 15px;
+  margin-top: 18px;
+}
+
+.photo-slot{
+    overflow:hidden;
+    border-radius:10px;
+    box-shadow:0 6px 15px rgba(0,0,0,.08);
+    break-inside:avoid;
+    margin-bottom:15px;
+}
+
+.photo-slot img{
+    width:100%;
+    height:auto;
+    display:block;
+    transition:.4s;
+}
+
+.photo-slot img:hover{
+    transform:scale(1.04);
+}
+/* Justified/even-height row — used only where class="photo-strip justified-row" is added in HTML */
+.photo-strip.justified-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.photo-strip.justified-row .photo-slot {
+    height: 240px;
+    width: auto;
+}
+
+.photo-strip.justified-row .photo-slot img {
+    height: 100%;
+    width: auto;
+    max-width: none;
+    object-fit: initial;
+}
+.photo-slot span {
+  font-family: monospace;
+  font-size: 0.7rem;
+  margin-top: 0.3rem;
+  color: var(--brass);
+}
+
+/* ---------------- Project cards ---------------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border-top: 3px solid var(--brass);
+}
+.card{
+    display:flex;
+    flex-direction:column;
+}
+
+.card ul{
+    flex:1;
+}
+
+.card ul.tags{
+    flex:0 0 auto;
+}
+
+.btn{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.18);
+
+}
+.card-thumb{
+    width:100%;
+    height:220px;
+    overflow:hidden;
+    border-radius:10px;
+    background:#f3f3f3;
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.card-thumb img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.card-thumb span {
+  font-family: monospace;
+  font-size: 0.7rem;
+  margin-top: 0.3rem;
+  color: var(--brass);
+}
+
+.card h3 { font-size: 1.15rem; margin-bottom: 0.15rem; }
+.card .year { color: var(--ink-soft); font-size: 0.9rem; margin: 0 0 0.75rem; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+.tags li {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: rgba(22,51,92,0.08);
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1.1rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--navy-deep);
+  color: var(--white);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+.btn:hover { background: var(--brass); color: var(--navy-deep); }
+
+/* ---------------- Skills ---------------- */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+.skill-block {
+  border-left: 3px solid var(--brass);
+  padding-left: 1.1rem;
+}
+.skill-block h3 {
+  font-size: 1.02rem;
+  margin-bottom: 0.4rem;
+}
+.skill-block p {
+  color: var(--ink-soft);
+  margin: 0;
+  font-size: 0.96rem;
+}
+
+/* ---------------- Achievements ---------------- */
+.achievement h3 { font-size: 1.2rem; margin-bottom: 0.3rem; }
+
+/* ---------------- References ---------------- */
+.ref-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.ref-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.ref-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.ref-card p { margin: 0.2rem 0; font-size: 0.94rem; }
+
+/* ---------------- Footer ---------------- */
+.site-footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background: var(--navy-deep);
+}
+.site-footer a {
+  color: var(--brass-soft);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 560px) {
+  .panel { padding: 2.5rem 1.15rem; }
+  .timeline { padding-left: 1.4rem; }
+  .timeline-item::before { left: -1.62rem; }
+}
